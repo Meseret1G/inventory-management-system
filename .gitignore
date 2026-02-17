@@ -1,0 +1,18 @@
+# Environments
+env/
+venv/
+ENV/
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Databases
+*.sqlite3
+
+# Frontend
+inventory/frontend/node_modules/
+inventory/frontend/build/
+inventory/frontend/.env
