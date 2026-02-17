@@ -9,6 +9,7 @@ on:
 jobs:
   backend-lint-test:
     runs-on: ubuntu-latest
+    # This defaults all 'run' commands to the folder containing your Django code
     defaults:
       run:
         working-directory: inventory
@@ -23,10 +24,15 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          # Resilient install: tries root of working-dir, then 'core' subfolder
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; 
+          elif [ -f core/requirements.txt ]; then pip install -r core/requirements.txt;
+          else echo "requirements.txt not found!" && exit 1; fi
 
       - name: Run Django Checks
-        run: python manage.py check
+        run: |
+          # If manage.py is in a subfolder, you may need to adjust this path
+          python manage.py check
 
   frontend-build:
     runs-on: ubuntu-latest
