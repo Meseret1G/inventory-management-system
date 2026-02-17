@@ -30,9 +30,6 @@ jobs:
 
   frontend-build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: inventory/frontend
     steps:
       - uses: actions/checkout@v3
 
@@ -41,8 +38,19 @@ jobs:
         with:
           node-version: "18"
 
-      - name: Install dependencies
-        run: npm install
+      - name: Find and Install Frontend Dependencies
+        run: |
+          PACKAGE_JSON_PATH=$(find . -name "package.json" -not -path "*/node_modules/*" | head -n 1)
+          FRONTEND_DIR=$(dirname "$PACKAGE_JSON_PATH")
+          echo "Found frontend in: $FRONTEND_DIR"
+
+          cd "$FRONTEND_DIR"
+          npm install
 
       - name: Build Frontend
-        run: npm run build
+        run: |
+          PACKAGE_JSON_PATH=$(find . -name "package.json" -not -path "*/node_modules/*" | head -n 1)
+          FRONTEND_DIR=$(dirname "$PACKAGE_JSON_PATH")
+
+          cd "$FRONTEND_DIR"
+          npm run build
