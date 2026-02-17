@@ -57,7 +57,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-CORS_ALLOW_ALL_ORIGINS = [
+CORS_ALLOW_ALL_ORIGINS = False
+CORS_ALLOW_ORIGINS = [
     "https://inventory-management-system-8e2s.vercel.app/",
     "http://localhost:3000",
 ]
