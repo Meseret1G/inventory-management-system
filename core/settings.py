@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-x0%1)%64#nyd8tnflj6izals)8fuk%_s8%3*c+(7qw-!eb-^1z'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -57,7 +57,10 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_ALL_ORIGINS = [
+    "https://inventory-management-system-8e2s.vercel.app/",
+    "http://localhost:3000",
+]
 CORS_ALLOW_HEADERS = [
     "accept",
     "authorization",
