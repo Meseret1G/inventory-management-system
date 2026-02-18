@@ -14,9 +14,10 @@ DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
 # Add your Render URL and local hosts
 ALLOWED_HOSTS = [
-    'inventory-management-system-8e2s.onrender.com', 
-    'localhost', 
-    '127.0.0.1'
+'inventory-management-system-wy6j.onrender.com',
+'localhost', 
+'127.0.0.1',
+'.onrender.com'
 ]
 
 # Application definition
