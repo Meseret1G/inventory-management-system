@@ -50,7 +50,7 @@ MIDDLEWARE = [
 
 CORS_ALLOW_ALL_ORIGINS = False
 CORS_ALLOWED_ORIGINS = [ # Fixed variable name from your previous error
-    "https://inventory-management-system-8e2s.vercel.app", # Removed trailing slash
+    "https://inventory-management-system-8e2s.vercel.app/", 
     "http://localhost:3000",
 ]
 
