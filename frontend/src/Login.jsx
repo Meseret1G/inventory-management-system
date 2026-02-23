@@ -16,7 +16,7 @@ const Login = ({ onLoginSuccess }) => {
 
         try {
             // We use the 'api' helper to send a POST request
-            const response = await api.post('/token/', { 
+            const response = await api.post('token/', { 
                 username: username.trim(), 
                 password: password 
             });
