@@ -68,3 +68,9 @@ Frontend Setup
 
 `npm start`
 
+Initial Setup
+---------
+
+To access the Admin Panel or protected API routes, you need to create a superuser:
+
+Follow the prompts to set your own username, email, and password.
